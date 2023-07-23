@@ -22,7 +22,7 @@ export default function Home() {
       PORTFOLIO
    
       <div className="text-xl bg-red-500 mx-4 md:mx-10 lg:mx-0 max-w-3xl px-5 py-2">          
-        <p>n this example, I've added a negative mx value for each breakpoint to move the 
+        <p>In this example, I've added a negative mx value for each breakpoint to move the 
           element to the left. Adjust the negative values as needed to control the extent of the movement. 
            Smaller negative values will move the element less, while larger negative 
            values will move it further to the left. 
