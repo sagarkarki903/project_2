@@ -8,9 +8,28 @@ body {
   /* @apply text-white */
  
 }
+
 .headerr{
   font-size: 1.8rem;
   text-align: left;
   padding-left: 1vw;
 }
 
+/* Add this CSS to your global styles or a specific CSS file */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.secondpara {
+
+  
+}

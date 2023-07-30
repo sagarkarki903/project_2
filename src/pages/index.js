@@ -1,11 +1,17 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
+import Head from 'next/head';
+import { useState } from 'react';
+import Typewriter from '@/pages/Typewriter.js';
+import Image from 'next/image';
 
-const inter = Inter({ subsets: ['latin'] })
+
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <>
       <Head>
@@ -15,27 +21,79 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-<div>
-    
-    
-    <div className='bg-red-200 headerr font-bold text-white mx-3'>
-      PORTFOLIO
-   
-      <div className="text-xl bg-red-500 mx-4 md:mx-10 lg:mx-0 max-w-3xl px-5 py-2">          
-        <p>In this example, I've added a negative mx value for each breakpoint to move the 
-          element to the left. Adjust the negative values as needed to control the extent of the movement. 
-           Smaller negative values will move the element less, while larger negative 
-           values will move it further to the left. 
-           mind that using very large negative values can cause the element to move
-            out of the viewport, so you may want to use reasonable negative values 
-            based on your layout requirements.</p>
-       
+      <div>
+        <div className="navbarr bg-[#4b5563] flex items-center justify-between p-4 text-white">
+          <div className="headerr text-lg">
+            <strong>PORTFOLIO</strong>
+          </div>
+          <div className="flex sm:hidden justify-end w-full"> {/* Only show this div on small screens (mobile) */}
+            <button
+              className="px-4 cursor-pointer focus:outline-none"
+              onClick={toggleMenu}
+            >
+              {/* Hamburger icon */}
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
+              </svg>
+            </button>
+          </div>
+          {/* Menu items */}
+          <div
+            className={`${
+              menuOpen ? 'block' : 'hidden'
+            } sm:flex flex-grow sm:flex sm:items-center sm:w-auto justify-end`}
+          >
+            <div className="px-4 cursor-pointer">
+              Home
+            </div>
+            <div className="px-4 cursor-pointer">
+              About me
+            </div>
+            <div className="px-4 cursor-pointer">
+              Projects
+            </div>
+            <div className="px-4 cursor-pointer">
+              Contact
+            </div>
+          </div>
+        </div>
+          
+        <div className='text-white text-2xl my-4'>
+        
+          <Typewriter />  
+        </div>
+
+        <div className='Home'>    
+          <div className='homeleft text-white text-3xl  py-5 px-2 max-w-2xl mx-14' >
+              <div className='font-normal'>
+              <p>Hi, My name is Sagar Karki. <br />I am a junior majoring in CS
+                in University of Louisiana at Monroe.</p> 
+                <div className='text-lg'>
+                  <p>I am passionate about computers in general. I love to learn different things
+                    and interact with people and be of help when needed.
+                  </p>
+                </div>
+              </div>
+          
+              
+          </div>
+        </div>
+
+
+
+
       </div>
-
-    </div>
-
-  </div>
-     
     </>
-  )
+  );
 }
